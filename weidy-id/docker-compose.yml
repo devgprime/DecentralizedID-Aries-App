@@ -1,0 +1,45 @@
+version: '3'
+services:
+  issuer:
+    build:
+      context: .
+      dockerfile: Dockerfile_issuer
+    container_name: issuer
+    ports:
+      - "9000:9000"
+      - "8880:8880"
+    networks:
+      weidy-net:
+        ipv4_address: 172.19.0.3
+
+  holder:
+    build:
+      context: .
+      dockerfile: Dockerfile_holder
+    container_name: holder
+    ports:
+      - "9001:9001"
+      - "8881:8881"
+    networks:
+      weidy-net:
+        ipv4_address: 172.19.0.2
+
+  verifier:
+    build:
+      context: .
+      dockerfile: Dockerfile_verifier
+    container_name: verifier
+    ports:
+      - "9002:9002"
+      - "8882:8882"
+    networks:
+      weidy-net:
+        ipv4_address: 172.19.0.4
+
+networks:
+  weidy-net:
+    driver: bridge 
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1

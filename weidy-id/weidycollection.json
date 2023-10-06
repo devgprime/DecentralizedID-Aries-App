@@ -1,0 +1,469 @@
+{
+	"info": {
+		"_postman_id": "baab4122-1886-4be2-8ca3-a139a53e6665",
+		"name": "Weidy API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24536108",
+		"_collection_link": "https://www.postman.com/dgltimt05/workspace/public/collection/24536108-baab4122-1886-4be2-8ca3-a139a53e6665?action=share&source=collection_link&creator=24536108"
+	},
+	"item": [
+		{
+			"name": "Issuer / Verifier",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"walletId\": \"issuer-wallet-id\",\n    \"walletKey\": \"issuer-wallet-key\",\n    \"seed\": \"demoissuerdidseed000000000000000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{issuer_host}}/login",
+							"host": [
+								"{{issuer_host}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Schema & Def",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Identity01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{issuer_host}}/issuer/credentials/schemas",
+							"host": [
+								"{{issuer_host}}"
+							],
+							"path": [
+								"issuer",
+								"credentials",
+								"schemas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Invitation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{issuer_host}}/invitations",
+							"host": [
+								"{{issuer_host}}"
+							],
+							"path": [
+								"invitations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Offer Credential",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Dev\",\n    \"sex\": \"male\",\n    \"birth_year\": \"1995\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{issuer_host}}/issuer/credentials/offer?cred-def-id={{schema-def-id}}",
+							"host": [
+								"{{issuer_host}}"
+							],
+							"path": [
+								"issuer",
+								"credentials",
+								"offer"
+							],
+							"query": [
+								{
+									"key": "cred-def-id",
+									"value": "{{schema-def-id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Proof Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{issuer_host}}/verifier/proofs/check?proof-id=0b4fd06c-7e5a-4a46-9b18-9d3b5c2a8972",
+							"host": [
+								"{{issuer_host}}"
+							],
+							"path": [
+								"verifier",
+								"proofs",
+								"check"
+							],
+							"query": [
+								{
+									"key": "proof-id",
+									"value": "0b4fd06c-7e5a-4a46-9b18-9d3b5c2a8972"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-proof-request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Holder",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"walletId\": \"holder-wallet-id\",\n    \"walletKey\": \"holder-wallet-key\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{holder_host}}/login",
+							"host": [
+								"{{holder_host}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Invitation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{holder_host}}/invitations/accept?invitation-url=https://localhost:9002?oob=eyJAdHlwZSI6Imh0dHBzOi8vYWx0ZXJuYXRpdmUub3JnL2FsdGVyLW9mLWJhbmRvbiIsIkBpZCI6IjhjczA3ZTk1Ny01dDFoLTNjODgtOWJsMy0xNzQ5ODEyMzI2OTEiLCJsYWJlbCI6InNvcmNlIiwiYWNjZXB0IjpbImh0dHBzOi8vYWx0ZXJuYXRpdmUub3JnL2FpcDEiLCJodHRwczovL2FsdGVybmF0aXZlLm9yZy9haXAyO2Vudj1yZmMxOSJdLCJoYW5kc2hhX3Byb3RvY29scyI6WyJodHRwczovL2FsdGVybmF0aXZlLm9yZy9kaWRleGNvbS8xLjAiLCJodHRwczovL2FsdGVybmF0aXZlLm9yZy9jb25uZWN0aW9ucy8xLjAiXSwic2VydmljZXMiOlt7ImlkIjoiI2lubGluZS0wIiwic2VydmljZUVuZHBvaW50IjoiaHR0cDovL2FsdGVybmF0aXZlLm9yZzo5MDAyIiwidHlwZSI6ImRpZC1hbHRlcm4iLCJyZWNpcGllbnRLZXlzIjpbImRpZDprZXk6ejZNa2ZFZ1BjV2Zoa2FkWndaZUVkZ0NqNWpLQ2lzUjJVeHJ5TTNnWklsUVZaVHRCVjEiXSwicm91dGluZ0tleXMiOltdfV19",
+							"host": [
+								"{{holder_host}}"
+							],
+							"path": [
+								"invitations",
+								"accept"
+							],
+							"query": [
+								{
+									"key": "invitation-url",
+									"value": "https://localhost:9002?oob=eyJAdHlwZSI6Imh0dHBzOi8vYWx0ZXJuYXRpdmUub3JnL2FsdGVyLW9mLWJhbmRvbiIsIkBpZCI6IjhjczA3ZTk1Ny01dDFoLTNjODgtOWJsMy0xNzQ5ODEyMzI2OTEiLCJsYWJlbCI6InNvcmNlIiwiYWNjZXB0IjpbImh0dHBzOi8vYWx0ZXJuYXRpdmUub3JnL2FpcDEiLCJodHRwczovL2FsdGVybmF0aXZlLm9yZy9haXAyO2Vudj1yZmMxOSJdLCJoYW5kc2hhX3Byb3RvY29scyI6WyJodHRwczovL2FsdGVybmF0aXZlLm9yZy9kaWRleGNvbS8xLjAiLCJodHRwczovL2FsdGVybmF0aXZlLm9yZy9jb25uZWN0aW9ucy8xLjAiXSwic2VydmljZXMiOlt7ImlkIjoiI2lubGluZS0wIiwic2VydmljZUVuZHBvaW50IjoiaHR0cDovL2FsdGVybmF0aXZlLm9yZzo5MDAyIiwidHlwZSI6ImRpZC1hbHRlcm4iLCJyZWNpcGllbnRLZXlzIjpbImRpZDprZXk6ejZNa2ZFZ1BjV2Zoa2FkWndaZUVkZ0NqNWpLQ2lzUjJVeHJ5TTNnWklsUVZaVHRCVjEiXSwicm91dGluZ0tleXMiOltdfV19"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Credential",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{holder_host}}/holder/credentials/accept?credential_id=",
+							"host": [
+								"{{holder_host}}"
+							],
+							"path": [
+								"holder",
+								"credentials",
+								"accept"
+							],
+							"query": [
+								{
+									"key": "credential_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Proof Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{holder_host}}/holder/proofs/accept",
+							"host": [
+								"{{holder_host}}"
+							],
+							"path": [
+								"holder",
+								"proofs",
+								"accept"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCred",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{holder_host}}/holder/credentials/get?credential-id=b34da7ea-e8b3-4d3e-b7cd-6123456b7890",
+							"host": [
+								"{{holder_host}}"
+							],
+							"path": [
+								"holder",
+								"credentials",
+								"get"
+							],
+							"query": [
+								{
+									"key": "credential-id",
+									"value": "b34da7ea-e8b3-4d3e-b7cd-6123456b7890"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCreds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{holder_host}}/holder/credentials/getAll",
+							"host": [
+								"{{holder_host}}"
+							],
+							"path": [
+								"holder",
+								"credentials",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "declineCred",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{holder_host}}/holder/credentials/decline?credential-id=",
+							"host": [
+								"{{holder_host}}"
+							],
+							"path": [
+								"holder",
+								"credentials",
+								"decline"
+							],
+							"query": [
+								{
+									"key": "credential-id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Verifier",
+			"item": [
+				{
+					"name": "create-proof-request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{verifier_host}}/verifier/proofs/request",
+							"host": [
+								"{{verifier_host}}"
+							],
+							"path": [
+								"verifier",
+								"proofs",
+								"request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"walletId\": \"verifier-wallet-id\",\n    \"walletKey\": \"verifier-wallet-key\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{verifier_host}}/login",
+							"host": [
+								"{{verifier_host}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Invitation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{verifier_host}}/invitations",
+							"host": [
+								"{{verifier_host}}"
+							],
+							"path": [
+								"invitations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Proof Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{verifier_host}}/verifier/proofs/check?proof-id=",
+							"host": [
+								"{{verifier_host}}"
+							],
+							"path": [
+								"verifier",
+								"proofs",
+								"check"
+							],
+							"query": [
+								{
+									"key": "proof-id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "issuer_host",
+			"value": "localhost:8880",
+			"type": "string"
+		},
+		{
+			"key": "holder_host",
+			"value": "localhost:8881",
+			"type": "string"
+		},
+		{
+			"key": "verifier_host",
+			"value": "localhost:8882",
+			"type": "string"
+		},
+		{
+			"key": "schema-def-id",
+			"value": "DPc1HdDk7uYj6aZb9aEtuP:3:CL:15242:CI1",
+			"type": "string"
+		}
+	]
+}
