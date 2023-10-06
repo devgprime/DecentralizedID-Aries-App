@@ -18,7 +18,7 @@ TypeScript (>= 4.x)
 # Installation
 Clone the Repository
 
-git clone https://github.com/your_username/MTCT-API.git
+git clone https://github.com/devgprime/WeidyMTCT.git
 cd MTCT-API
 
 Install Dependencies
