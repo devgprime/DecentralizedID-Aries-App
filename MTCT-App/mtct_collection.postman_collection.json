@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "baab4122-1886-4be2-8ca3-a139a53e6665",
+		"name": "MTCT Full API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24536108",
+		"_collection_link": "https://www.postman.com/dgltimt05/workspace/public/collection/24536108-baab4122-1886-4be2-8ca3-a139a53e6665?action=share&source=collection_link&creator=24536108"
+	},
+	"item": [
+		{
+			"name": "Add Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Roche\",\n\t\"email\": \"roche@gmail.com\",\n\t\"dateOfBirth\": \"1995-01-01\",\n\t\"address\": \"Bangalore,800021\",\n\t\"phoneNumber\": \"123-456-7890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip_address}}:3000/customers",
+					"protocol": "http",
+					"host": [
+						"{{ip_address}}"
+					],
+					"port": "3000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip_address}}:3000/customers/651ee16e25acfdbdc7cb3f08",
+					"protocol": "http",
+					"host": [
+						"{{ip_address}}"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"651ee16e25acfdbdc7cb3f08"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Equity Fund\",\n\t\"description\": \"An equity mutual fund\",\n\t\"price\": 100.5,\n\t\"category\": \"Equity\",\n\t\"riskLevel\": \"Medium\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip_address}}:3000/products",
+					"protocol": "http",
+					"host": [
+						"{{ip_address}}"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Agent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jane Agent\",\n\t\"email\": \"jane.agent@email.com\",\n\t\"phoneNumber\": \"321-654-0987\",\n\t\"branch\": \"Branch1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip_address}}:3000/agents",
+					"protocol": "http",
+					"host": [
+						"{{ip_address}}"
+					],
+					"port": "3000",
+					"path": [
+						"agents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Record Transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"customerId\": \"[CUSTOMER_ID]\",\n\t\"agentId\": \"[AGENT_ID]\",\n\t\"productId\": \"[PRODUCT_ID]\",\n\t\"transactionType\": \"Buy\",\n\t\"amount\": 1000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip_address}}:3000/transactions",
+					"protocol": "http",
+					"host": [
+						"{{ip_address}}"
+					],
+					"port": "3000",
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip_address}}:3000/products",
+					"protocol": "http",
+					"host": [
+						"{{ip_address}}"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Agents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip_address}}:3000/agents",
+					"protocol": "http",
+					"host": [
+						"{{ip_address}}"
+					],
+					"port": "3000",
+					"path": [
+						"agents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip_address}}:3000/transactions",
+					"protocol": "http",
+					"host": [
+						"{{ip_address}}"
+					],
+					"port": "3000",
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip_address}}:3000/customers",
+					"protocol": "http",
+					"host": [
+						"{{ip_address}}"
+					],
+					"port": "3000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+
+		{
+		  "name": "Sell Product",
+		  "request": {
+			"method": "POST",
+			"header": [],
+			"body": {
+			  "mode": "raw",
+			  "raw": "{\n\t\"customerId\": \"[CUSTOMER_ID]\",\n\t\"agentId\": \"[AGENT_ID]\",\n\t\"productId\": \"[PRODUCT_ID]\",\n\t\"transactionType\": \"Sell\",\n\t\"amount\": 900\n}",
+			  "options": {
+				"raw": {
+				  "language": "json"
+				}
+			  }
+			},
+			"url": {
+			  "raw": "http://{{ip_address}}:3000/transactions",
+			  "protocol": "http",
+			  "host": [
+				"{{ip_address}}"
+			  ],
+			  "port": "3000",
+			  "path": [
+				"transactions"
+			  ]
+			}
+		  },
+		  "response": []
+		}
+	  ],
+	  "variable": [
+		{
+		  "key": "ip_address",
+		  "value": "127.0.0.1"
+		}
+
+	]
+}
