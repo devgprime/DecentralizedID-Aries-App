@@ -14,8 +14,8 @@ Transaction Management: Record and list buy/sell transactions of financial produ
 # Prerequisites
 Ensure you have the following installed on your machine:
 
-Node.js (>= 14.x)
-MongoDB (>= 4.x)
+Node.js (>= 14.x), 
+MongoDB (>= 4.x), 
 TypeScript (>= 4.x)
 
 # Installation
