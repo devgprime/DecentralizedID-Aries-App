@@ -1,6 +1,7 @@
 ## MTCT API Solution
 
 The MTCT API solution is a comprehensive backend service for managing financial products, transactions, and relevant stakeholders such as customers and agents.
+![Uploading image.png…]()
 
 # Features
 Product Management: Add, retrieve, and list financial products.
