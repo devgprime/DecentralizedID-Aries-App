@@ -1,8 +1,8 @@
-## MTCT API Solution
+## Mobile Identity API Solution
 
 The MTCT API solution is a comprehensive backend service for managing financial products, transactions, and relevant stakeholders such as customers and agents.
 
-![image](https://github.com/devgprime/WeidyMTCT/assets/131144462/27cc944f-4910-4775-b73a-e14d86b2bf9b)
+![image](https://github.com/devgprime/DeIDYMTCT/assets/131144462/27cc944f-4910-4775-b73a-e14d86b2bf9b)
 
 
 # Features
@@ -21,13 +21,13 @@ TypeScript (>= 4.x)
 # Installation
 Clone the Repository
 
-git clone https://github.com/devgprime/WeidyMTCT.git
-cd MTCT-API
+git clone https://github.com/devgprime/MyDecentralizedId.git
+cd MyDecentralizedId-API
 
 Install Dependencies
 npm install
 
-MONGODB_URI=mongodb://localhost:27017/mtct
+MONGODB_URI=mongodb://localhost:27017/deId
 JWT_SECRET=your_jwt_secret
 PORT=3000
 
@@ -35,7 +35,7 @@ npm run dev
 
 # API Endpoints
 
-Import this [postman file](./mtct_collection.postman_collection.json) to use the apis
+Import this [postman file](./deId_collection.postman_collection.json) to use the apis
 
 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -45,27 +45,27 @@ Import this [postman file](./mtct_collection.postman_collection.json) to use the
 
 
 
-# WeIDY - Basic Web3 Identity Solution
+# deIDY - Basic Web3 Identity Solution
 
-WeIDY is a basic Web3 Identity solution that demonstrates the workflow of Verifiable Credentials and its inherent workflows. It allows you to connect to a local Indy node or any DLT ledger, connect different actors (issuer, holder, verifier), simulate credential issuance and verification, list credentials, and manage user registration, login, and logout.
+DeIDY is a basic Web3 Identity solution that demonstrates the workflow of Verifiable Credentials and its inherent workflows. It allows you to connect to a local Indy node or any DLT ledger, connect different actors (issuer, holder, verifier), simulate credential issuance and verification, list credentials, and manage user registration, login, and logout.
 
 ## Prerequisites
 
-Before you can run WeIDY, you'll need the following prerequisites:
+Before you can run DeIDY, you'll need the following prerequisites:
 
 - Docker: Make sure you have Docker installed on your system. You can download and install Docker from [Docker's official website](https://www.docker.com/).
 
 ## Getting Started
 
-Follow these steps to build and run WeIDY:
+Follow these steps to build and run DeIDY:
 
 This project is based on `Aries` framework, so firstly please follow the [instruction](https://aries.js.org/guides/getting-started/installation) before going deeply
 
 
 # Building the images
-sudo docker build -f Dockerfile_issuer -t weidy-issuer:v1.0.0 .
-sudo docker build -f Dockerfile_holder -t weidy-holder:v1.0.0 .
-sudo docker build -f Dockerfile_verifier -t weidy-verifier:v1.0.0 .
+sudo docker build -f Dockerfile_issuer -t DeIDY-issuer:v1.0.0 .
+sudo docker build -f Dockerfile_holder -t DeIDY-holder:v1.0.0 .
+sudo docker build -f Dockerfile_verifier -t DeIDY-verifier:v1.0.0 .
 
 
 ```bash
@@ -76,8 +76,8 @@ sudo docker run -p 8882:8882 -p 9002:9002 <verifier-image-id> # run as issuer
 ```
 
 
-## Accessing WeIDY
-Once the containers are up and running, you can access WeIDY components as follows:
+## Accessing DeIDY
+Once the containers are up and running, you can access DeIDY components as follows:
 
 Issuer: http://localhost:8880
 Holder: http://localhost:8881
@@ -86,12 +86,12 @@ Verifier: http://localhost:8882
 
 ## APIs
 
-Import this [postman file](./weidycollection.json) to use the apis
+Import this [postman file](./DeIDYcollection.json) to use the apis
 
 ## Workflow
 
 ## Usage
-WeIDY provides a basic Web3 Identity solution with the following key capabilities:
+DeIDY provides a basic Web3 Identity solution with the following key capabilities:
 
 Connecting to a local Indy node or DLT ledger.
 Connecting issuer, holder, and verifier actors.
