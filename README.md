@@ -1,6 +1,6 @@
-## Mobile Identity API Solution
+## Decentralized Mobile Identity API Solution
 
-The MTCT API solution is a comprehensive backend service for managing financial products, transactions, and relevant stakeholders such as customers and agents.
+The Decentralized Mobile Identity API Solution is a comprehensive backend service for managing financial products, transactions, and relevant stakeholders such as customers and agents.
 
 ![image](https://github.com/devgprime/DeIDYMTCT/assets/131144462/27cc944f-4910-4775-b73a-e14d86b2bf9b)
 
