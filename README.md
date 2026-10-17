@@ -1,3 +1,11 @@
+# Aries identity proof of concept
+
+Historical decentralized-identity application experiment. The web and service components are under `MTCT-App/` and `weidy-id/`. A scaffold test is present; a complete identity-flow test and verified fresh-clone deployment remain future work.
+
+This is a proof of concept, not a maintained identity platform. Existing design material and source history are retained below.
+
+---
+
 ## Decentralized Mobile Identity API Solution
 
 The Decentralized Mobile Identity API Solution is a comprehensive backend service for managing financial products, transactions, and relevant stakeholders such as customers and agents.
